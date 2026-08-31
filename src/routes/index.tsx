@@ -27,10 +27,10 @@ const images = {
   toddlers: `${imageBase}photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1100&q=88`,
   girls: `${imageBase}photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1100&q=88`,
   boys: `${imageBase}photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=1100&q=88`,
-  lifestyle: `${imageBase}photo-1519744346363-dccf6ed8b41f?auto=format&fit=crop&w=1800&q=88`,
+  lifestyle: `${imageBase}photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1800&q=88`,
   story: `${imageBase}photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=88`,
   galleryOne: `${imageBase}photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=800&q=88`,
-  galleryTwo: `${imageBase}photo-1554130841-3c5a6f6a8f9f?auto=format&fit=crop&w=800&q=88`,
+  galleryTwo: `${imageBase}photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=800&q=88`,
   galleryThree: `${imageBase}photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=800&q=88`,
   galleryFour: `${imageBase}photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=88`,
 };
