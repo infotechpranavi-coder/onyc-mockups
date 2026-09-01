@@ -169,13 +169,13 @@
 
 .hero-banner-card { aspect-ratio: 4 / 5; border-radius: 1rem; color: var(--color-background); margin: 0 auto; max-height: min(40rem, 78vh); max-width: 28rem; min-height: clamp(22rem, 72vh, 36rem); overflow: hidden; position: relative; width: 100%; }
 .hero-banner-card__bg { height: 100%; inset: 0; object-fit: cover; object-position: center; position: absolute; width: 100%; }
-.hero-banner-card__overlay { background: linear-gradient(105deg, color-mix(in oklab, var(--color-ink) 58%, transparent) 0%, color-mix(in oklab, var(--color-ink) 30%, transparent) 45%, transparent 70%); inset: 0; position: absolute; }
-.hero-banner-card__content { left: clamp(1.25rem, 5vw, 2rem); max-width: 16rem; position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; }
-.hero-banner-card__tag { color: var(--color-butter); font-family: var(--font-play); font-size: 0.82rem; font-weight: 600; margin: 0 0 0.85rem; }
-.hero-banner-card h2 { font-family: var(--font-display); font-size: clamp(2rem, 6.5vw, 2.85rem); font-weight: 700; letter-spacing: -0.05em; line-height: 0.92; margin: 0 0 1.5rem; text-transform: none; }
-.hero-banner-card h2 em { color: var(--color-butter); font-style: normal; }
+.hero-banner-card__overlay { background: linear-gradient(105deg, color-mix(in oklab, var(--color-ink) 72%, transparent) 0%, color-mix(in oklab, var(--color-ink) 48%, transparent) 42%, color-mix(in oklab, var(--color-ink) 18%, transparent) 62%, transparent 78%); inset: 0; position: absolute; }
+.hero-banner-card__content { isolation: isolate; left: clamp(1.25rem, 5vw, 2rem); max-width: 16rem; position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; }
+.hero-banner-card__tag { color: var(--color-background); font-family: var(--font-play); font-size: 0.82rem; font-weight: 600; margin: 0 0 0.85rem; text-shadow: 0 2px 14px color-mix(in oklab, var(--color-ink) 72%, transparent), 0 1px 3px color-mix(in oklab, var(--color-ink) 55%, transparent); }
+.hero-banner-card h2 { font-family: var(--font-display); font-size: clamp(2rem, 6.5vw, 2.85rem); font-weight: 700; letter-spacing: -0.05em; line-height: 0.92; margin: 0 0 1.5rem; text-shadow: 0 2px 16px color-mix(in oklab, var(--color-ink) 75%, transparent), 0 1px 4px color-mix(in oklab, var(--color-ink) 60%, transparent); text-transform: none; }
+.hero-banner-card h2 em { color: var(--color-brand); font-style: normal; text-shadow: 0 2px 14px color-mix(in oklab, var(--color-ink) 70%, transparent), 0 1px 3px color-mix(in oklab, var(--color-ink) 50%, transparent); }
 .hero-banner-card__cta { margin-top: 0.25rem; }
-.hero-banner-card__caption { bottom: clamp(1rem, 3vw, 1.5rem); color: color-mix(in oklab, var(--color-background) 82%, transparent); font-size: 0.58rem; font-weight: 700; left: clamp(1.25rem, 5vw, 2rem); letter-spacing: 0.1em; position: absolute; text-transform: uppercase; z-index: 2; }
+.hero-banner-card__caption { bottom: clamp(1rem, 3vw, 1.5rem); color: var(--color-background); font-size: 0.58rem; font-weight: 700; left: clamp(1.25rem, 5vw, 2rem); letter-spacing: 0.1em; position: absolute; text-shadow: 0 1px 10px color-mix(in oklab, var(--color-ink) 70%, transparent), 0 1px 3px color-mix(in oklab, var(--color-ink) 55%, transparent); text-transform: uppercase; z-index: 2; }
 
 .hero-carousel--3 .hero-banner-card__overlay { background: linear-gradient(105deg, color-mix(in oklab, var(--color-ink) 72%, transparent) 0%, color-mix(in oklab, var(--color-ink) 38%, transparent) 50%, transparent 75%); }
 
@@ -351,7 +351,8 @@
 .vs-compare__lead { color: var(--color-copy); font-size: 0.88rem; line-height: 1.55; margin: 0.85rem auto 0; max-width: 22rem; }
 .vs-compare__card { background: var(--color-background); border: 1px solid color-mix(in oklab, var(--color-brand) 14%, var(--color-border)); border-radius: 1.35rem; box-shadow: 0 1.25rem 3rem color-mix(in oklab, var(--color-brand) 8%, transparent); overflow: hidden; padding: 1.35rem 1.25rem 1.15rem; }
 .vs-compare__header { align-items: center; display: grid; grid-template-columns: 1fr auto 1fr; margin-bottom: 1.15rem; text-align: center; }
-.vs-compare__brand { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.03em; }
+.vs-compare__brand { align-items: center; display: flex; justify-content: center; }
+.vs-compare__brand-logo { display: block; height: 1.85rem; object-fit: contain; width: auto; }
 .vs-compare__others-head { color: var(--color-copy); font-family: var(--font-sans); font-size: 1rem; font-weight: 600; }
 .vs-compare__vs { background: var(--color-brand); border-radius: 0.55rem; box-shadow: 0.2rem 0.2rem 0 var(--color-butter); color: var(--color-brand-foreground); display: inline-block; font-family: var(--font-play); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1; padding: 0.45rem 0.75rem; text-transform: lowercase; transform: rotate(-6deg); }
 .vs-compare__list { display: flex; flex-direction: column; gap: 0.75rem; list-style: none; margin: 0; padding: 0; }
@@ -1447,4 +1448,762 @@
   .h3-final-inner { padding: 3.5rem 1.25rem; }
   .h3-final-image { margin: 0 1.25rem 1.75rem; width: calc(100% - 2.5rem); }
   .product-card--minimal .product-image, .product-card--dark .product-image { border-radius: 0.35rem; }
+}
+
+/* ── Home 1 typography — Bebas Neue + Daniel ── */
+.home-page--1 {
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-daniel: "Daniel Bold", "Daniel", cursive;
+}
+
+/* Shared pink script accent — matches "arrivals." style */
+.home-page--1 h2 em,
+.home-page--1 .offers-section__head h2 em,
+.home-page--1 .final-cta__title em {
+  color: var(--color-brand);
+  font-family: var(--font-daniel);
+  font-size: 1.22em;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 0 color-mix(in oklab, var(--color-brand) 25%, transparent);
+  text-transform: lowercase;
+}
+
+/* Bebas: loud display headlines */
+.home-page--1 .announcement-bar {
+  font-family: var(--font-bebas);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+}
+
+.home-page--1 .hero-banner-card__overlay {
+  background: linear-gradient(
+    105deg,
+    color-mix(in oklab, var(--color-ink) 82%, transparent) 0%,
+    color-mix(in oklab, var(--color-ink) 62%, transparent) 36%,
+    color-mix(in oklab, var(--color-ink) 32%, transparent) 56%,
+    transparent 78%
+  );
+}
+
+.home-page--1 .hero-banner-card__content::before {
+  background: radial-gradient(ellipse 130% 115% at 0% 48%, color-mix(in oklab, var(--color-ink) 55%, transparent) 0%, transparent 68%);
+  content: "";
+  inset: -2rem -1rem -2rem -1.75rem;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.home-page--1 .hero-banner-card__tag {
+  color: var(--color-background);
+  font-family: var(--font-daniel);
+  font-size: clamp(1rem, 3.2vw, 1.12rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 16px color-mix(in oklab, var(--color-ink) 78%, transparent), 0 1px 4px color-mix(in oklab, var(--color-ink) 65%, transparent);
+}
+
+.home-page--1 .hero-banner-card h2 {
+  font-family: var(--font-bebas);
+  font-size: clamp(2.35rem, 7vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 0.92;
+  text-shadow: 0 2px 18px color-mix(in oklab, var(--color-ink) 80%, transparent), 0 1px 5px color-mix(in oklab, var(--color-ink) 65%, transparent);
+  text-transform: uppercase;
+}
+
+.home-page--1 .hero-banner-card h2 em {
+  color: var(--color-brand);
+  font-family: var(--font-daniel);
+  font-size: 1.18em;
+  font-style: normal;
+  font-weight: 700;
+  text-shadow: 0 2px 16px color-mix(in oklab, var(--color-ink) 75%, transparent), 0 1px 4px color-mix(in oklab, var(--color-ink) 55%, transparent);
+  text-transform: lowercase;
+}
+
+.home-page--1 .hero-banner-card__caption {
+  color: var(--color-background);
+  font-family: var(--font-sans);
+  letter-spacing: 0.14em;
+  text-shadow: 0 1px 12px color-mix(in oklab, var(--color-ink) 75%, transparent), 0 1px 3px color-mix(in oklab, var(--color-ink) 60%, transparent);
+}
+
+.home-page--1 .category-scroll--1 .category-scroll__head h2 {
+  font-family: var(--font-bebas);
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.home-page--1 .category-scroll--1 .category-scroll__head h2 em {
+  color: var(--color-brand);
+  display: inline;
+  font-family: var(--font-daniel);
+  font-size: 1.22em;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+}
+
+.home-page--1 .category-scroll--1 .category-scroll__card--1 .category-wash {
+  background: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--color-ink) 72%, transparent) 0%,
+    color-mix(in oklab, var(--color-ink) 28%, transparent) 42%,
+    transparent 72%
+  );
+}
+
+.home-page--1 .category-scroll--1 .category-scroll__card--1 .category-copy {
+  bottom: 1.25rem;
+  left: 1.15rem;
+  right: 1.15rem;
+  z-index: 1;
+}
+
+.home-page--1 .category-scroll--1 .category-scroll__card--1 .category-copy h3 {
+  font-family: var(--font-bebas);
+  font-size: clamp(1.65rem, 5vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-top: 0.35rem;
+  text-shadow: 0 2px 16px color-mix(in oklab, var(--color-ink) 45%, transparent);
+  text-transform: uppercase;
+}
+
+.home-page--1 .category-scroll--1 .category-scroll__card--1 .category-copy span {
+  color: var(--color-background);
+  display: block;
+  font-family: var(--font-daniel);
+  font-size: clamp(1.05rem, 3.5vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  text-shadow: 0 1px 2px color-mix(in oklab, var(--color-ink) 65%, transparent), 0 2px 14px color-mix(in oklab, var(--color-ink) 50%, transparent);
+  text-transform: none;
+}
+
+.home-page--1 .category-scroll--1 .category-scroll__hint {
+  font-family: var(--font-bebas);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  margin-top: 1rem;
+}
+
+.home-page--1 .category-scroll--1 .category-scroll__hint span {
+  font-family: var(--font-daniel);
+  font-size: 1.05em;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.home-page--1 .eyebrow,
+.home-page--1 .text-link {
+  font-family: var(--font-play);
+  font-size: clamp(0.95rem, 2.8vw, 1.08rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.home-page--1 .text-link {
+  border-bottom-width: 2px;
+  color: var(--color-ink);
+  padding-bottom: 0.35rem;
+  white-space: nowrap;
+}
+
+.home-page--1 .text-link span {
+  color: var(--color-brand);
+  font-size: 1em;
+  margin-left: 0.3rem;
+}
+
+.home-page--1 .section-heading h2 {
+  font-family: var(--font-bebas);
+  font-size: clamp(2.75rem, 6vw, 4.25rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.home-page--1 .section-heading h2 em {
+  font-size: 1.18em;
+}
+
+.home-page--1 .category-scroll--1 .text-link {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+/* VS compare — cleaner hierarchy */
+.home-page--1 .vs-compare__intro {
+  margin-bottom: 2.25rem;
+}
+
+.home-page--1 .vs-compare__eyebrow {
+  font-family: var(--font-play);
+  font-size: clamp(0.95rem, 2.8vw, 1.08rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.home-page--1 .type-heading {
+  font-family: var(--font-bebas);
+  font-size: clamp(2.1rem, 5.5vw, 2.65rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.02;
+  margin-inline: auto;
+  max-width: 18ch;
+  text-transform: uppercase;
+}
+
+.home-page--1 .type-heading em {
+  color: var(--color-brand);
+  display: inline;
+  font-family: var(--font-daniel);
+  font-size: 1.22em;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+}
+
+.home-page--1 .type-heading--compare {
+  line-height: 0.98;
+  max-width: 20ch;
+}
+
+.home-page--1 .type-heading--compare .type-heading__line1 {
+  display: block;
+  font-size: clamp(2.15rem, 6.5vw, 2.85rem);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+}
+
+.home-page--1 .type-heading--compare .type-heading__line2 {
+  display: block;
+  font-size: clamp(2rem, 5.8vw, 2.55rem);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+}
+
+.home-page--1 .type-heading--compare .type-heading__vs {
+  color: var(--color-brand);
+  display: inline;
+  font-family: var(--font-daniel);
+  font-size: 1.12em;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+}
+
+.home-page--1 .type-heading--compare .type-heading__line2 em {
+  font-size: 1.15em;
+}
+
+.home-page--1 .vs-compare__lead {
+  color: color-mix(in oklab, var(--color-ink) 55%, var(--color-copy));
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 2.6vw, 1rem);
+  line-height: 1.55;
+  margin-top: 1rem;
+  max-width: 24rem;
+}
+
+.home-page--1 .vs-compare__brand {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.home-page--1 .vs-compare__brand-logo {
+  display: block;
+  height: clamp(1.65rem, 5vw, 1.95rem);
+  object-fit: contain;
+  width: auto;
+}
+
+.home-page--1 .vs-compare__others-head {
+  color: color-mix(in oklab, var(--color-ink) 45%, var(--color-copy));
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-page--1 .vs-compare__vs {
+  font-family: var(--font-daniel);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.home-page--1 .vs-compare__pill {
+  background: var(--color-brand);
+  border: none;
+  color: var(--color-brand-foreground);
+  font-family: var(--font-daniel);
+  font-size: clamp(0.92rem, 2.6vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 0.42rem 0.95rem;
+  text-transform: lowercase;
+}
+
+.home-page--1 .vs-compare__side-label {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.home-page--1 .vs-compare__side p {
+  font-family: var(--font-sans);
+  font-size: clamp(0.82rem, 2.4vw, 0.88rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.home-page--1 .vs-compare__footer-note {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+}
+
+/* Offers */
+.home-page--1 .offers-section__eyebrow {
+  font-family: var(--font-play);
+  font-size: clamp(0.95rem, 2.8vw, 1.08rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.home-page--1 .offers-section__head h2 {
+  font-family: var(--font-bebas);
+  font-size: clamp(2rem, 4.5vw, 2.85rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-page--1 .offers-section__head h2 em {
+  font-size: 1.15em;
+}
+
+.home-page--1 .offer-card__tag {
+  font-family: var(--font-daniel);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.home-page--1 .offer-card__copy h3 {
+  font-family: var(--font-bebas);
+  font-size: clamp(1.15rem, 3vw, 1.35rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.home-page--1 .offer-card__cta {
+  font-family: var(--font-bebas);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+/* Product cards — keep readable sans */
+.home-page--1 .product-card__footer h3 {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.home-page--1 .product-card__price-block strong {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.home-page--1 .product-card__sale-pill {
+  font-family: var(--font-bebas);
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+/* Story */
+.home-page--1 .story-copy .type-eyebrow {
+  color: color-mix(in oklab, var(--color-ink) 55%, var(--color-copy));
+  font-family: var(--font-play);
+  font-size: clamp(0.95rem, 2.8vw, 1.08rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.home-page--1 .story-copy .type-heading--story {
+  font-family: var(--font-bebas);
+  font-size: clamp(2.35rem, 7vw, 3.15rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 0.92;
+  margin: 0 0 1.5rem;
+  max-width: 13ch;
+  text-transform: uppercase;
+}
+
+.home-page--1 .story-copy .type-heading--story .type-heading__line1,
+.home-page--1 .story-copy .type-heading--story .type-heading__line2,
+.home-page--1 .story-copy .type-heading--story .type-heading__line3 {
+  display: block;
+}
+
+.home-page--1 .story-copy .type-heading--story .type-heading__line1 em {
+  color: var(--color-brand);
+  display: block;
+  font-family: var(--font-daniel);
+  font-size: clamp(3rem, 10vw, 4.35rem);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 0.88;
+  margin-bottom: 0.05rem;
+  text-transform: lowercase;
+}
+
+.home-page--1 .story-copy .type-heading--story .type-heading__line2 {
+  font-size: clamp(2.35rem, 7vw, 3.1rem);
+  line-height: 0.92;
+}
+
+.home-page--1 .story-copy .type-heading--story .type-heading__line2 em {
+  color: var(--color-brand);
+  font-family: var(--font-daniel);
+  font-size: 1.12em;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.home-page--1 .story-copy .type-heading--story .type-heading__line3 {
+  font-size: clamp(2.35rem, 7vw, 3.1rem);
+  line-height: 0.92;
+}
+
+.home-page--1 .story-copy > p:not(.type-eyebrow) {
+  font-family: var(--font-sans);
+  font-size: clamp(0.88rem, 2.5vw, 0.92rem);
+  line-height: 1.7;
+}
+
+.home-page--1 .story-scribble {
+  color: var(--color-brand);
+  font-family: var(--font-daniel);
+  font-size: clamp(1.45rem, 5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 0.82;
+  text-transform: lowercase;
+}
+
+.home-page--1 .story-image span {
+  font-family: var(--font-bebas);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+
+/* Gallery */
+.home-page--1 .gallery-card__tag {
+  font-family: var(--font-daniel);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.home-page--1 .gallery-card__caption {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.home-page--1 .social-link {
+  font-family: var(--font-bebas);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+/* Final CTA */
+.home-page--1 .final-cta__eyebrow {
+  font-family: var(--font-play);
+  font-size: clamp(0.95rem, 2.8vw, 1.08rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.home-page--1 .final-cta__title {
+  font-family: var(--font-bebas);
+  font-size: clamp(2.75rem, 8vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.home-page--1 .final-cta__title em {
+  color: var(--color-butter);
+  font-size: 1.18em;
+}
+
+.home-page--1 .final-cta__sub {
+  font-family: var(--font-sans);
+}
+
+.home-page--1 .final-cta__btn {
+  font-family: var(--font-bebas) !important;
+  font-size: 0.78rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* Footer tagline */
+.home-page--1 .footer-brand p {
+  font-family: var(--font-bebas);
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.home-page--1 .subscribed-message {
+  font-family: var(--font-daniel);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+@media (min-width: 901px) {
+  .home-page--1 .hero-banner-card h2 {
+    font-size: clamp(2.5rem, 4.2vw, 3.5rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .home-page--1 .section-heading h2 {
+    font-size: clamp(2.35rem, 11vw, 2.85rem);
+  }
+
+  .home-page--1 .eyebrow,
+  .home-page--1 .text-link {
+    font-size: 0.95rem;
+  }
+
+  .home-page--1 .category-scroll--1 .category-scroll__head {
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+  }
+
+  .home-page--1 .category-scroll--1 .text-link {
+    margin-left: auto;
+  }
+
+  .home-page--1 .category-scroll--1 .category-scroll__card--1 .category-copy span {
+    font-size: 1.08rem;
+  }
+
+  .home-page--1 .category-scroll--1 .category-scroll__card--1 .category-copy h3 {
+    font-size: 1.55rem;
+  }
+
+  .home-page--1 .type-heading {
+    font-size: clamp(1.95rem, 7vw, 2.35rem);
+  }
+
+  .home-page--1 .type-heading--compare .type-heading__line1 {
+    font-size: clamp(1.85rem, 8.5vw, 2.35rem);
+    white-space: normal;
+  }
+
+  .home-page--1 .type-heading--compare .type-heading__line2 {
+    font-size: clamp(1.75rem, 7.5vw, 2.15rem);
+  }
+
+  .home-page--1 .vs-compare__lead {
+    font-size: 0.92rem;
+  }
+
+  .home-page--1 .story-copy .type-heading--story .type-heading__line1 em {
+    font-size: clamp(2.65rem, 12vw, 3.5rem);
+  }
+
+  .home-page--1 .story-copy .type-heading--story .type-heading__line2,
+  .home-page--1 .story-copy .type-heading--story .type-heading__line3 {
+    font-size: clamp(2rem, 8.5vw, 2.55rem);
+  }
+}
+
+/* ── Home 2 typography — Space Grotesk + Fraunces + DM Sans ── */
+.home-page--2 h2 em,
+.home-page--2 .offers-section__head h2 em,
+.home-page--2 .gallery-heading em,
+.home-page--2 .final-cta__title em,
+.home-page--2 .type-heading em {
+  color: var(--color-brand);
+  font-family: var(--font-serif);
+  font-size: 1.05em;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.home-page--2 .h2-announcement,
+.home-page--2 .h2-label,
+.home-page--2 .h2-label--play,
+.home-page--2 .h2-text-link,
+.home-page--2 .offers-section__eyebrow,
+.home-page--2 .gallery-section .eyebrow,
+.home-page--2 .final-cta__eyebrow {
+  font-family: var(--font-sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-page--2 .h2-label,
+.home-page--2 .h2-label--play {
+  color: color-mix(in oklab, var(--color-copy) 88%, transparent);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.home-page--2 .h2-label--play {
+  color: var(--color-brand);
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+.home-page--2 .h2-section-head h2,
+.home-page--2 .h2-editorial-copy h2,
+.home-page--2 .category-scroll--2 .category-scroll__head h2,
+.home-page--2 .offers-section__head h2,
+.home-page--2 .gallery-heading,
+.home-page--2 .final-cta__title,
+.home-page--2 .type-heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.home-page--2 .h2-stats span {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.home-page--2 .h2-stats em {
+  color: var(--color-brand);
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.home-page--2 .hero-banner-card__tag {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.home-page--2 .hero-banner-card h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  text-transform: none;
+}
+
+.home-page--2 .hero-banner-card h2 em {
+  color: var(--color-brand);
+  font-family: var(--font-serif);
+  font-size: 1.05em;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.home-page--2 .hero-banner-card__caption,
+.home-page--2 .h2-editorial-copy p,
+.home-page--2 .h2-bento-card--cta h3,
+.home-page--2 .category-scroll__minimal-copy p {
+  font-family: var(--font-sans);
+}
+
+.home-page--2 .h2-text-link {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.home-page--2 .h2-outline-btn,
+.home-page--2 .offer-card__cta {
+  font-family: var(--font-sans);
+  letter-spacing: 0.06em;
+}
+
+.home-page--2 .offer-card__tag {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.home-page--2 .offer-card__copy h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.home-page--2 .product-card--minimal .product-info h3,
+.home-page--2 .product-card--minimal .product-pricing strong {
+  font-family: var(--font-sans);
+}
+
+.home-page--2 .product-card--minimal .product-image img {
+  object-fit: contain;
+  object-position: center;
+  padding: 0.35rem;
+}
+
+.home-page--2 .offer-card__media img {
+  object-fit: contain;
+  object-position: center;
+  padding: 0.75rem;
+}
+
+@media (max-width: 560px) {
+  .home-page--2 .h2-section-head h2,
+  .home-page--2 .h2-editorial-copy h2 {
+    font-size: clamp(1.85rem, 8vw, 2.35rem);
+  }
 }

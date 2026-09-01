@@ -38,15 +38,6 @@ export function Home1Page() {
 
       <HeroCarousel variant="1" />
 
-      <section className="ticker" aria-label="ONYC values">
-        <div>
-          Born in India <span>✳</span> Made for everywhere
-        </div>
-        <div>
-          Move freely <span>✳</span> Dream loudly <span>✳</span> Play daily
-        </div>
-      </section>
-
       <CategoryScroll variant="1" />
 
       <section className="content-section arrivals-section" id="new-arrivals">
@@ -117,8 +108,14 @@ export function Home1Page() {
         </div>
         <div className="story-copy">
           <p className="type-eyebrow">Our point of view</p>
-          <h2 className="type-heading">
-            <em>Childhood is</em> the first great adventure.
+          <h2 className="type-heading type-heading--story">
+            <span className="type-heading__line1">
+              <em>childhood</em>
+            </span>
+            <span className="type-heading__line2">
+              <em>is</em> the first great
+            </span>
+            <span className="type-heading__line3">adventure.</span>
           </h2>
           <p>
             We make shoes for the wonderfully in-between moments: first steps, fast dashes, muddy detours and

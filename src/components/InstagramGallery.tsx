@@ -2,6 +2,8 @@ import { Instagram } from "lucide-react";
 import { galleryPosts } from "@/lib/home-data";
 
 export function InstagramGallery() {
+  const posts = galleryPosts;
+
   return (
     <section className="content-section gallery-section" aria-label="Instagram gallery">
       <div className="section-heading">
@@ -22,7 +24,7 @@ export function InstagramGallery() {
       </div>
 
       <div className="gallery-track">
-        {galleryPosts.map((post, index) => (
+        {posts.map((post, index) => (
           <a
             key={post.id}
             className={`gallery-card gallery-card--${index + 1}`}

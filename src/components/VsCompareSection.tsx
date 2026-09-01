@@ -1,6 +1,6 @@
 import { Sparkles } from "lucide-react";
 
-import { comparisonRows } from "@/lib/home-data";
+import { brandLogo, comparisonRows } from "@/lib/home-data";
 
 type VsCompareSectionProps = {
   variant?: "light" | "dark";
@@ -12,15 +12,22 @@ export function VsCompareSection({ variant = "light" }: VsCompareSectionProps) {
       <div className="vs-compare__inner">
         <div className="vs-compare__intro">
           <p className="vs-compare__eyebrow type-eyebrow">The ONYC difference</p>
-          <h2 className="type-heading">
-            <em>Us vs</em> the rest — built for little feet.
+          <h2 className="type-heading type-heading--compare">
+            <span className="type-heading__line1">
+              Us <em className="type-heading__vs">vs</em> the rest
+            </span>
+            <span className="type-heading__line2">
+              built for <em>little feet.</em>
+            </span>
           </h2>
           <p className="vs-compare__lead type-lead">Playful where it counts — premium where it matters.</p>
         </div>
 
         <div className="vs-compare__card">
           <div className="vs-compare__header">
-            <span className="vs-compare__brand">ONYC</span>
+            <div className="vs-compare__brand">
+              <img src={brandLogo} alt="ONYC" className="vs-compare__brand-logo" width={88} height={32} />
+            </div>
             <span className="vs-compare__vs" aria-hidden="true">
               vs
             </span>

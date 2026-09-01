@@ -1,24 +1,46 @@
 const product = (file: string) => `/products/${file}`;
+const newProduct = (file: string) => `/products/new-products/${encodeURIComponent(file)}`;
 
 export const brandLogo = "/ONYC log.png";
 
-/** Transparent cutout — used in product sections */
-export const heroProduct = product("prod6-removebg-preview.png");
+/** Shoe-only cutouts — product cards, category thumbs, offer media */
+export const shoeImages = {
+  kudo: newProduct("v5 kudo shoes staic_.png"),
+  donut: newProduct("kid donut shoes_.png"),
+  lolly: newProduct("Lolly Yellow Purple v2.png"),
+  mango: newProduct("Mango_.png"),
+  muffin: newProduct("Muffin ONYC .png"),
+  muskmelon: newProduct("muskmelon static_.png"),
+  orange: newProduct("orange.png"),
+  sharkCroc: newProduct("shark and croc  shoes.png"),
+} as const;
+
+/** Lifestyle / kids-in-scene — hero banners, editorial, gallery, bento */
+export const lifestyleImages = {
+  heroGirl: newProduct("final.jpeg"),
+  heroBoy: newProduct("final.png"),
+  bunnyKids: newProduct("Bunny kid ONYC .png"),
+  donutKids: newProduct("2 kid donut shoes_.png"),
+  gatorKids: newProduct("aligator kid static .png"),
+} as const;
 
 export const images = {
-  hero: heroProduct,
-  heroHome2: heroProduct,
-  heroHome3: heroProduct,
-  sneakers: product("prod1.webp"),
-  toddlers: product("prod2.webp"),
-  girls: product("prod3.webp"),
-  boys: product("prod4.webp"),
-  lifestyle: product("prod5.webp"),
-  story: product("prod3.webp"),
-  galleryOne: product("prod1.webp"),
-  galleryTwo: product("prod2.webp"),
-  galleryThree: product("prod4.webp"),
-  galleryFour: product("prod5.webp"),
+  hero: shoeImages.kudo,
+  heroHome2: lifestyleImages.heroGirl,
+  heroHome3: lifestyleImages.heroBoy,
+  sneakers: shoeImages.kudo,
+  toddlers: shoeImages.muffin,
+  girls: shoeImages.lolly,
+  boys: shoeImages.sharkCroc,
+  lifestyle: lifestyleImages.heroGirl,
+  story: lifestyleImages.heroBoy,
+  galleryOne: lifestyleImages.bunnyKids,
+  galleryTwo: lifestyleImages.donutKids,
+  galleryThree: lifestyleImages.gatorKids,
+  galleryFour: lifestyleImages.heroGirl,
+  bentoWide: lifestyleImages.donutKids,
+  bentoStyle: lifestyleImages.gatorKids,
+  bentoStory: lifestyleImages.bunnyKids,
 };
 
 export const navItems = ["New Arrivals", "Sneakers", "Girls", "Boys", "Toddlers", "Sale"];
@@ -32,19 +54,22 @@ export const homeVariants = [
 export type HomeVariantId = (typeof homeVariants)[number]["id"];
 
 export const categories = [
-  { name: "Sneakers", note: "Everyday icons", image: product("prod1.webp"), tone: "category-coral" },
-  { name: "Toddlers", note: "Tiny explorers", image: product("prod2.webp"), tone: "category-peach" },
-  { name: "Girls", note: "Play with colour", image: product("prod3.webp"), tone: "category-pink" },
-  { name: "Boys", note: "Made to move", image: product("prod4.webp"), tone: "category-yellow" },
-  { name: "Sale", note: "Limited picks", image: product("prod5.webp"), tone: "category-coral" },
+  { name: "Sneakers", note: "Everyday icons", image: shoeImages.kudo, tone: "category-coral" },
+  { name: "Toddlers", note: "Tiny explorers", image: shoeImages.muffin, tone: "category-peach" },
+  { name: "Girls", note: "Play with colour", image: shoeImages.lolly, tone: "category-pink" },
+  { name: "Boys", note: "Made to move", image: shoeImages.sharkCroc, tone: "category-yellow" },
+  { name: "Sale", note: "Limited picks", image: shoeImages.donut, tone: "category-coral" },
 ];
 
 export const products = [
-  { name: "Mellow Run", price: "₹1,899", originalPrice: "₹2,299", onSale: true, image: product("prod1.webp"), color: "Rose / Cloud", rating: "4.9" },
-  { name: "Sunny Side", price: "₹1,699", image: product("prod2.webp"), color: "Butter / Cream", rating: "4.8" },
-  { name: "Cloud High", price: "₹2,099", originalPrice: "₹2,499", onSale: true, image: product("prod3.webp"), color: "Lilac / Pink", rating: "5.0" },
-  { name: "Cocoa Dash", price: "₹1,899", image: product("prod4.webp"), color: "Cocoa / Gum", rating: "4.9" },
-  { name: "Petal Pop", price: "₹1,799", originalPrice: "₹2,199", onSale: true, image: product("prod5.webp"), color: "Pink / White", rating: "4.8" },
+  { name: "Kudo V5", price: "₹1,899", originalPrice: "₹2,299", onSale: true, image: shoeImages.kudo, color: "Mint / White", rating: "4.9" },
+  { name: "Donut Pop", price: "₹1,699", image: shoeImages.donut, color: "Pink / Cream", rating: "4.8" },
+  { name: "Mango Sprint", price: "₹1,899", image: shoeImages.mango, color: "Citrus / Gum", rating: "4.9" },
+  { name: "Lolly Mix", price: "₹1,799", originalPrice: "₹2,199", onSale: true, image: shoeImages.lolly, color: "Yellow / Lilac", rating: "4.8" },
+  { name: "Muffin Step", price: "₹1,699", image: shoeImages.muffin, color: "Peach / Cream", rating: "4.9" },
+  { name: "Melon Fresh", price: "₹1,899", image: shoeImages.muskmelon, color: "Green / Sand", rating: "4.8" },
+  { name: "Citrus Pop", price: "₹1,799", image: shoeImages.orange, color: "Orange / White", rating: "4.9" },
+  { name: "Reef Runner", price: "₹2,099", image: shoeImages.sharkCroc, color: "Teal / Navy", rating: "5.0" },
 ];
 
 export const comparisonRows = [
@@ -73,12 +98,12 @@ export type HeroBannerSlide = {
   caption: string;
 };
 
-/** Hero only — product & kids lifestyle. No offers. */
+/** Hero only — lifestyle & product shots. No offers. */
 export const heroSlidesByVariant: Record<"1" | "2" | "3", HeroBannerSlide[]> = {
   "1": [
     {
       id: "h1-adventures",
-      image: "/onyc-hero.jpg",
+      image: lifestyleImages.heroGirl,
       tag: "For wherever they go next",
       title: "Made for little",
       titleEm: "adventures.",
@@ -88,7 +113,7 @@ export const heroSlidesByVariant: Record<"1" | "2" | "3", HeroBannerSlide[]> = {
     },
     {
       id: "h1-personality",
-      image: images.sneakers,
+      image: lifestyleImages.bunnyKids,
       tag: "New season drop",
       title: "Little feet.",
       titleEm: "Big personality.",
@@ -98,7 +123,7 @@ export const heroSlidesByVariant: Record<"1" | "2" | "3", HeroBannerSlide[]> = {
     },
     {
       id: "h1-play",
-      image: images.lifestyle,
+      image: lifestyleImages.donutKids,
       tag: "Built for kids",
       title: "Light as air.",
       titleEm: "Tough as play.",
@@ -110,7 +135,7 @@ export const heroSlidesByVariant: Record<"1" | "2" | "3", HeroBannerSlide[]> = {
   "2": [
     {
       id: "h2-movement",
-      image: images.lifestyle,
+      image: lifestyleImages.heroGirl,
       tag: "Everyday edit",
       title: "Less noise.",
       titleEm: "More movement.",
@@ -120,7 +145,7 @@ export const heroSlidesByVariant: Record<"1" | "2" | "3", HeroBannerSlide[]> = {
     },
     {
       id: "h2-steps",
-      image: images.galleryOne,
+      image: lifestyleImages.bunnyKids,
       tag: "Small steps",
       title: "Shoes for big",
       titleEm: "days ahead.",
@@ -130,7 +155,7 @@ export const heroSlidesByVariant: Record<"1" | "2" | "3", HeroBannerSlide[]> = {
     },
     {
       id: "h2-comfort",
-      image: images.galleryTwo,
+      image: lifestyleImages.donutKids,
       tag: "Why parents love us",
       title: "Soft-touch.",
       titleEm: "All-day ease.",
@@ -142,7 +167,7 @@ export const heroSlidesByVariant: Record<"1" | "2" | "3", HeroBannerSlide[]> = {
   "3": [
     {
       id: "h3-play",
-      image: images.galleryThree,
+      image: lifestyleImages.gatorKids,
       tag: "Editorial drop",
       title: "Play loud.",
       titleEm: "Move free.",
@@ -152,7 +177,7 @@ export const heroSlidesByVariant: Record<"1" | "2" | "3", HeroBannerSlide[]> = {
     },
     {
       id: "h3-joy",
-      image: "/onyc-hero.jpg",
+      image: lifestyleImages.heroBoy,
       tag: "New season",
       title: "Wear the",
       titleEm: "joy.",
@@ -162,7 +187,7 @@ export const heroSlidesByVariant: Record<"1" | "2" | "3", HeroBannerSlide[]> = {
     },
     {
       id: "h3-tough",
-      image: images.galleryFour,
+      image: lifestyleImages.bunnyKids,
       tag: "Playground tested",
       title: "Built tough.",
       titleEm: "Feels soft.",
@@ -192,28 +217,28 @@ export type GalleryPost = {
   href: string;
 };
 
-/** Instagram-style gallery — lifestyle shots with playful captions. */
+/** Instagram-style gallery — kids & lifestyle scenes */
 export const galleryPosts: GalleryPost[] = [
   {
     id: "g1",
     image: images.galleryOne,
-    alt: "ONYC sneakers styled with vintage props",
+    alt: "Kids wearing ONYC bunny sneakers in a playful studio set",
     tag: "Weekend edit",
-    caption: "Park-day energy, all weekend long.",
+    caption: "Little moments, big personality — spotted in the wild.",
     href: "https://instagram.com/onyc",
   },
   {
     id: "g2",
     image: images.galleryTwo,
-    alt: "Bright toddler shoes on a playful pink set",
+    alt: "Child enjoying donuts while wearing ONYC sneakers",
     tag: "Tiny steps",
-    caption: "First pairs that feel as fun as they look.",
+    caption: "Playful pairs for snack breaks and sprint finishes.",
     href: "https://instagram.com/onyc",
   },
   {
     id: "g3",
     image: images.galleryThree,
-    alt: "Kids sneakers among wooden toys",
+    alt: "Child laughing in ONYC gator-themed sneakers",
     tag: "Play mode",
     caption: "Built for blocks, bikes & backyard chaos.",
     href: "https://instagram.com/onyc",
@@ -221,30 +246,30 @@ export const galleryPosts: GalleryPost[] = [
   {
     id: "g4",
     image: images.galleryFour,
-    alt: "Colourful ONYC footwear close-up",
+    alt: "Girl stepping down in bright yellow ONYC slip-ons",
     tag: "Colour pop",
-    caption: "Little looks with seriously big personality.",
+    caption: "Clean lines, bold colour, all-day comfort.",
     href: "https://instagram.com/onyc",
   },
 ];
 
-/** Playful offer cards — compact, premium, accent colors. */
+/** Offer cards — shoe cutouts in card media */
 export const offerBanners: OfferBanner[] = [
   {
     id: "sale",
     tag: "Up to 30% off",
-    title: "Playground favourites",
-    detail: "Light pairs made for running, jumping, and everything in between.",
-    image: images.sneakers,
+    title: "New season pairs",
+    detail: "Fresh cutouts and colourways from the latest ONYC drop.",
+    image: shoeImages.kudo,
     href: "#best-sellers",
     tone: "pink",
   },
   {
     id: "comfort",
-    tag: "New season",
-    title: "Tough on play",
-    detail: "Gentle on feet — soft uppers, flexible soles, easy on.",
-    image: images.toddlers,
+    tag: "New arrivals",
+    title: "Soft from day one",
+    detail: "Light uppers, flexible soles, and easy on-and-off for busy mornings.",
+    image: shoeImages.muffin,
     href: "#new-arrivals",
     tone: "teal",
   },
@@ -253,7 +278,7 @@ export const offerBanners: OfferBanner[] = [
     tag: "Perk",
     title: "Free shipping",
     detail: "Complimentary delivery over ₹1,499. Easy returns, always.",
-    image: images.lifestyle,
+    image: shoeImages.muskmelon,
     href: "#new-arrivals",
     tone: "butter",
   },
