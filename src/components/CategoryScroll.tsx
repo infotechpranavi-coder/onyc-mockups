@@ -10,6 +10,7 @@ type CategoryScrollProps = {
 
 export function CategoryScroll({ variant }: CategoryScrollProps) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const categoryItems = categories;
 
   const scroll = (direction: "left" | "right") => {
     const card = trackRef.current?.querySelector<HTMLElement>(".category-scroll__card");
@@ -40,7 +41,7 @@ export function CategoryScroll({ variant }: CategoryScrollProps) {
                 <p className="h2-label">Collections</p>
                 <h2>Shop by category</h2>
               </div>
-              <span className="category-scroll__count">{categories.length} pairs</span>
+              <span className="category-scroll__count">{categoryItems.length} pairs</span>
             </>
           )}
           {variant === "3" && (
@@ -64,7 +65,7 @@ export function CategoryScroll({ variant }: CategoryScrollProps) {
         </div>
 
         <div className="category-scroll__track" ref={trackRef} aria-label="Browse categories">
-          {categories.map((category, index) => (
+          {categoryItems.map((category, index) => (
             <a
               className={`category-scroll__card category-scroll__card--${variant} ${category.tone ?? ""}`}
               href={`#${category.name.toLowerCase()}`}

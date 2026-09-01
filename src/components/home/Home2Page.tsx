@@ -133,21 +133,21 @@ export function Home2Page() {
 
       <section className="h2-bento" aria-label="Brand highlights">
         <div className="h2-bento-card h2-bento-card--wide">
-          <img src={images.galleryThree} alt="Sneaker detail shot" />
+          <img src={images.bentoWide} alt="Sneaker detail shot" />
           <div>
             <p className="h2-label">Detail</p>
             <h3>Soft-touch uppers</h3>
           </div>
         </div>
         <div className="h2-bento-card">
-          <img src={images.galleryFour} alt="Kids footwear styling" />
+          <img src={images.bentoStyle} alt="Kids footwear styling" />
           <div>
             <p className="h2-label">Style</p>
             <h3>Everyday icons</h3>
           </div>
         </div>
         <div className="h2-bento-card h2-bento-card--tall">
-          <img src={images.story} alt="ONYC brand story" />
+          <img src={images.bentoStory} alt="ONYC brand story" />
           <div>
             <p className="h2-label">Story</p>
             <h3>Born to play</h3>

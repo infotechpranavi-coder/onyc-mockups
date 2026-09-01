@@ -11,16 +11,16 @@ type PromoBannersProps = {
 export function PromoBanners({ variant = "1" }: PromoBannersProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const banners = offerBanners;
 
   const scrollTo = useCallback((index: number) => {
     const track = trackRef.current;
     if (!track) return;
-    const next = Math.min(offerBanners.length - 1, Math.max(0, index));
+    const next = Math.min(banners.length - 1, Math.max(0, index));
     const slide = track.children[next] as HTMLElement | undefined;
     if (!slide) return;
     track.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
-    setActive(next);
-  }, []);
+  }, [banners.length]);
 
   const scrollBy = (direction: "left" | "right") => {
     scrollTo(direction === "left" ? active - 1 : active + 1);
@@ -64,7 +64,7 @@ export function PromoBanners({ variant = "1" }: PromoBannersProps) {
             size="icon"
             aria-label="Next offer"
             onClick={() => scrollBy("right")}
-            disabled={active === offerBanners.length - 1}
+            disabled={active === banners.length - 1}
           >
             <ChevronRight />
           </Button>
@@ -73,7 +73,7 @@ export function PromoBanners({ variant = "1" }: PromoBannersProps) {
 
       <div className="offers-section__viewport">
         <div className="offers-section__track" ref={trackRef}>
-          {offerBanners.map((offer) => (
+          {banners.map((offer) => (
             <a className={`offer-card offer-card--${offer.tone}`} href={offer.href} key={offer.id}>
               <div className="offer-card__copy">
                 {offer.tag && <span className="offer-card__tag">{offer.tag}</span>}
@@ -92,7 +92,7 @@ export function PromoBanners({ variant = "1" }: PromoBannersProps) {
       </div>
 
       <div className="offers-section__dots" role="tablist" aria-label="Choose offer">
-        {offerBanners.map((offer, index) => (
+        {banners.map((offer, index) => (
           <button
             key={offer.id}
             type="button"
