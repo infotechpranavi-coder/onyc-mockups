@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as Home1RouteImport } from './routes/home1'
 import { Route as Home2RouteImport } from './routes/home2'
 import { Route as Home3RouteImport } from './routes/home3'
+import { Route as ShopIndexRouteImport } from './routes/shop/index'
+import { Route as ShopSlugRouteImport } from './routes/shop/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +36,32 @@ const Home3Route = Home3RouteImport.update({
   path: '/home3',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShopIndexRoute = ShopIndexRouteImport.update({
+  id: '/shop/',
+  path: '/shop/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopSlugRoute = ShopSlugRouteImport.update({
+  id: '/shop/$slug',
+  path: '/shop/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/home1': typeof Home1Route
   '/home2': typeof Home2Route
   '/home3': typeof Home3Route
+  '/shop/$slug': typeof ShopSlugRoute
+  '/shop/': typeof ShopIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home1': typeof Home1Route
   '/home2': typeof Home2Route
   '/home3': typeof Home3Route
+  '/shop/$slug': typeof ShopSlugRoute
+  '/shop': typeof ShopIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +69,16 @@ export interface FileRoutesById {
   '/home1': typeof Home1Route
   '/home2': typeof Home2Route
   '/home3': typeof Home3Route
+  '/shop/$slug': typeof ShopSlugRoute
+  '/shop/': typeof ShopIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home1' | '/home2' | '/home3'
+  fullPaths: '/' | '/home1' | '/home2' | '/home3' | '/shop/$slug' | '/shop/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home1' | '/home2' | '/home3'
-  id: '__root__' | '/' | '/home1' | '/home2' | '/home3'
+  to: '/' | '/home1' | '/home2' | '/home3' | '/shop/$slug' | '/shop'
+  id:
+    '__root__' | '/' | '/home1' | '/home2' | '/home3' | '/shop/$slug' | '/shop/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +86,8 @@ export interface RootRouteChildren {
   Home1Route: typeof Home1Route
   Home2Route: typeof Home2Route
   Home3Route: typeof Home3Route
+  ShopSlugRoute: typeof ShopSlugRoute
+  ShopIndexRoute: typeof ShopIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +120,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Home3RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shop/': {
+      id: '/shop/'
+      path: '/shop'
+      fullPath: '/shop/'
+      preLoaderRoute: typeof ShopIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop/$slug': {
+      id: '/shop/$slug'
+      path: '/shop/$slug'
+      fullPath: '/shop/$slug'
+      preLoaderRoute: typeof ShopSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +142,8 @@ const rootRouteChildren: RootRouteChildren = {
   Home1Route: Home1Route,
   Home2Route: Home2Route,
   Home3Route: Home3Route,
+  ShopSlugRoute: ShopSlugRoute,
+  ShopIndexRoute: ShopIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

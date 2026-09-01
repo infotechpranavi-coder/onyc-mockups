@@ -1,8 +1,8 @@
+import { Link } from "@tanstack/react-router";
 import { Heart, Search, ShoppingBag, Star } from "lucide-react";
+import type { ReactNode } from "react";
 
-import { products } from "@/lib/home-data";
-
-type Product = (typeof products)[number];
+import type { Product } from "@/lib/home-data";
 
 type ProductCardProps = {
   product: Product;
@@ -11,6 +11,7 @@ type ProductCardProps = {
   onAdd: () => void;
   variant?: "default" | "minimal" | "dark";
   layout?: "default" | "premium" | "editorial";
+  linkToDetail?: boolean;
 };
 
 function ProductPricing({
@@ -53,13 +54,23 @@ export function ProductCard({
   onAdd,
   variant = "default",
   layout = "default",
+  linkToDetail = false,
 }: ProductCardProps) {
   const variantClass = variant !== "default" ? ` product-card--${variant}` : "";
   const layoutClass =
     layout === "premium" ? " product-card--premium" : layout === "editorial" ? " product-card--editorial" : "";
 
-  if (layout === "editorial") {
+  const wrapLink = (node: ReactNode) => {
+    if (!linkToDetail) return node;
     return (
+      <Link to="/shop/$slug" params={{ slug: product.slug }} className="product-card-link">
+        {node}
+      </Link>
+    );
+  };
+
+  if (layout === "editorial") {
+    return wrapLink(
       <article className={`product-card${variantClass}${layoutClass}`}>
         <div className="product-card__editorial-visual">
           {product.onSale && <span className="product-card__editorial-tag">Sale</span>}
@@ -67,7 +78,11 @@ export function ProductCard({
             type="button"
             className={wishlisted ? "product-card__editorial-wish is-wishlisted" : "product-card__editorial-wish"}
             aria-label={wishlisted ? `Remove ${product.name} from wishlist` : `Add ${product.name} to wishlist`}
-            onClick={onWishlist}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              onWishlist();
+            }}
           >
             <Heart fill={wishlisted ? "currentColor" : "none"} strokeWidth={1.75} />
           </button>
@@ -77,12 +92,12 @@ export function ProductCard({
             <ProductPricing product={product} layout="editorial" />
           </div>
         </div>
-      </article>
+      </article>,
     );
   }
 
   if (layout === "premium") {
-    return (
+    return wrapLink(
       <article className={`product-card${variantClass}${layoutClass}`}>
         <div className="product-card__media">
           {product.onSale && <span className="product-card__sale-pill">Sale</span>}
@@ -90,7 +105,11 @@ export function ProductCard({
             type="button"
             className={wishlisted ? "product-card__wish is-wishlisted" : "product-card__wish"}
             aria-label={wishlisted ? `Remove ${product.name} from wishlist` : `Add ${product.name} to wishlist`}
-            onClick={onWishlist}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              onWishlist();
+            }}
           >
             <Heart fill={wishlisted ? "currentColor" : "none"} strokeWidth={1.75} />
           </button>
@@ -100,11 +119,11 @@ export function ProductCard({
           <h3>{product.name}</h3>
           <ProductPricing product={product} layout="premium" />
         </div>
-      </article>
+      </article>,
     );
   }
 
-  return (
+  return wrapLink(
     <article className={`product-card${variantClass}`}>
       <div className="product-image">
         {product.onSale && <span className="product-sale-badge">Sale</span>}
@@ -115,7 +134,16 @@ export function ProductCard({
           <span />
         </div>
         <div className="product-actions">
-          <button type="button" className="product-action-btn" aria-label={`Add ${product.name} to bag`} onClick={onAdd}>
+          <button
+            type="button"
+            className="product-action-btn"
+            aria-label={`Add ${product.name} to bag`}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              onAdd();
+            }}
+          >
             <ShoppingBag />
           </button>
           <button type="button" className="product-action-btn" aria-label={`Quick view ${product.name}`}>
@@ -125,7 +153,11 @@ export function ProductCard({
             type="button"
             className={wishlisted ? "product-action-btn is-wishlisted" : "product-action-btn"}
             aria-label={wishlisted ? `Remove ${product.name} from wishlist` : `Add ${product.name} to wishlist`}
-            onClick={onWishlist}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              onWishlist();
+            }}
           >
             <Heart fill={wishlisted ? "currentColor" : "none"} />
           </button>
@@ -142,6 +174,6 @@ export function ProductCard({
           <span className="product-play-tag">Kids pick</span>
         </div>
       </div>
-    </article>
+    </article>,
   );
 }
