@@ -10,7 +10,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { BrandLogo } from "@/components/layout/BrandLogo";
-import { homeVariants, navItems } from "@/lib/home-data";
+import { homeVariants, navLinks, type NavLink } from "@/lib/home-data";
+
+function isNavLinkActive(pathname: string, link: NavLink) {
+  if (link.activePrefix) {
+    return pathname === link.activePrefix || pathname.startsWith(`${link.activePrefix}/`);
+  }
+  if (link.hash) {
+    return pathname === link.to;
+  }
+  return pathname === link.to;
+}
 
 type SiteHeaderProps = {
   cartCount: number;
@@ -84,10 +94,15 @@ export function SiteHeader({
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {navItems.map((item) => (
-              <a href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>
-                {item}
-              </a>
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                to={link.to}
+                hash={link.hash}
+                className={isNavLinkActive(pathname, link) ? "is-active" : undefined}
+              >
+                {link.label}
+              </Link>
             ))}
           </nav>
 
@@ -143,15 +158,17 @@ export function SiteHeader({
             ))}
 
             <p className="mobile-menu-label">Shop</p>
-            {navItems.map((item) => (
-              <a
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
+            {navLinks.map((link) => (
+              <Link
+                to={link.to}
+                hash={link.hash}
                 onClick={() => setMenuOpen(false)}
-                key={item}
+                key={link.label}
+                className={isNavLinkActive(pathname, link) ? "is-active" : undefined}
               >
-                {item}
+                {link.label}
                 <ArrowRight />
-              </a>
+              </Link>
             ))}
           </aside>
         </div>

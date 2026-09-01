@@ -58,6 +58,7 @@ export function Home1Page() {
               key={product.name}
               product={product}
               layout="premium"
+              linkToDetail
               wishlisted={wishlisted.includes(product.name)}
               onWishlist={() => toggleWishlist(product.name)}
               onAdd={() => setCartCount((count) => count + 1)}
@@ -93,6 +94,7 @@ export function Home1Page() {
               key={product.name}
               product={product}
               layout="premium"
+              linkToDetail
               wishlisted={wishlisted.includes(product.name)}
               onWishlist={() => toggleWishlist(product.name)}
               onAdd={() => setCartCount((count) => count + 1)}

@@ -43,7 +43,23 @@ export const images = {
   bentoStory: lifestyleImages.bunnyKids,
 };
 
-export const navItems = ["New Arrivals", "Sneakers", "Girls", "Boys", "Toddlers", "Sale"];
+export type NavLink = {
+  label: string;
+  to: "/shop" | "/home1" | "/home2" | "/home3";
+  hash?: string;
+  /** Highlight when pathname starts with this prefix (e.g. shop pages). */
+  activePrefix?: "/shop";
+};
+
+export const navLinks: NavLink[] = [
+  { label: "Products", to: "/shop", activePrefix: "/shop" },
+  { label: "New Arrivals", to: "/home1", hash: "new-arrivals" },
+  { label: "Sneakers", to: "/shop" },
+  { label: "Girls", to: "/shop" },
+  { label: "Boys", to: "/shop" },
+  { label: "Toddlers", to: "/shop" },
+  { label: "Sale", to: "/shop" },
+];
 
 export const homeVariants = [
   { id: "home1", path: "/home1", label: "Home 1", tagline: "Bold & Colorful" },
@@ -61,16 +77,120 @@ export const categories = [
   { name: "Sale", note: "Limited picks", image: shoeImages.donut, tone: "category-coral" },
 ];
 
-export const products = [
-  { name: "Kudo V5", price: "₹1,899", originalPrice: "₹2,299", onSale: true, image: shoeImages.kudo, color: "Mint / White", rating: "4.9" },
-  { name: "Donut Pop", price: "₹1,699", image: shoeImages.donut, color: "Pink / Cream", rating: "4.8" },
-  { name: "Mango Sprint", price: "₹1,899", image: shoeImages.mango, color: "Citrus / Gum", rating: "4.9" },
-  { name: "Lolly Mix", price: "₹1,799", originalPrice: "₹2,199", onSale: true, image: shoeImages.lolly, color: "Yellow / Lilac", rating: "4.8" },
-  { name: "Muffin Step", price: "₹1,699", image: shoeImages.muffin, color: "Peach / Cream", rating: "4.9" },
-  { name: "Melon Fresh", price: "₹1,899", image: shoeImages.muskmelon, color: "Green / Sand", rating: "4.8" },
-  { name: "Citrus Pop", price: "₹1,799", image: shoeImages.orange, color: "Orange / White", rating: "4.9" },
-  { name: "Reef Runner", price: "₹2,099", image: shoeImages.sharkCroc, color: "Teal / Navy", rating: "5.0" },
+export type Product = {
+  slug: string;
+  name: string;
+  price: string;
+  originalPrice?: string;
+  onSale?: boolean;
+  image: string;
+  color: string;
+  rating: string;
+  description: string;
+  highlights: string[];
+  tagline?: string;
+  colors?: { name: string; hex: string; id?: string; image?: string; available?: boolean }[];
+  sizes?: { label: string; available: boolean }[];
+  stock?: number;
+  sku?: string;
+  reviewCount?: number;
+  additionalInfo?: {
+    countryOfOrigin: string;
+    manufacturer: string;
+    address: string;
+  };
+};
+
+export const products: Product[] = [
+  {
+    slug: "kudo-v5",
+    name: "Kudo V5",
+    price: "₹1,899",
+    originalPrice: "₹2,299",
+    onSale: true,
+    image: shoeImages.kudo,
+    color: "Mint / White",
+    rating: "4.9",
+    description: "Lightweight knit upper with a flexible sole built for first steps, playground sprints, and everything in between.",
+    highlights: ["Breathable mesh upper", "Anti-skid rubber outsole", "Easy velcro closure"],
+  },
+  {
+    slug: "donut-pop",
+    name: "Donut Pop",
+    price: "₹1,699",
+    image: shoeImages.donut,
+    color: "Pink / Cream",
+    rating: "4.8",
+    description: "Soft-touch sneaker with playful colour blocking and all-day cushioning for busy little feet.",
+    highlights: ["Washable upper", "Me-Put-On™ design", "Podiatrist-friendly fit"],
+  },
+  {
+    slug: "mango-sprint",
+    name: "Mango Sprint",
+    price: "₹1,899",
+    image: shoeImages.mango,
+    color: "Citrus / Gum",
+    rating: "4.9",
+    description: "Bright citrus tones meet featherlight construction — made for kids who never sit still.",
+    highlights: ["Ultra-light build", "Flexible forefoot", "Reinforced toe cap"],
+  },
+  {
+    slug: "lolly-mix",
+    name: "Lolly Mix",
+    price: "₹1,799",
+    originalPrice: "₹2,199",
+    onSale: true,
+    image: shoeImages.lolly,
+    color: "Yellow / Lilac",
+    rating: "4.8",
+    description: "Two-tone colour pop with a cushioned insole — fun looks, serious comfort.",
+    highlights: ["Dual-density sole", "Soft collar lining", "Easy on & off"],
+  },
+  {
+    slug: "muffin-step",
+    name: "Muffin Step",
+    price: "₹1,699",
+    image: shoeImages.muffin,
+    color: "Peach / Cream",
+    rating: "4.9",
+    description: "Minimal slip-on with a rounded toe and grippy sole — perfect for toddlers finding their stride.",
+    highlights: ["Slip-on entry", "Wide toe box", "Machine-washable"],
+  },
+  {
+    slug: "melon-fresh",
+    name: "Melon Fresh",
+    price: "₹1,899",
+    image: shoeImages.muskmelon,
+    color: "Green / Sand",
+    rating: "4.8",
+    description: "Fresh summer palette with breathable panels and a flexible outsole for warm-weather play.",
+    highlights: ["Ventilated panels", "Lightweight EVA midsole", "All-day comfort"],
+  },
+  {
+    slug: "citrus-pop",
+    name: "Citrus Pop",
+    price: "₹1,799",
+    image: shoeImages.orange,
+    color: "Orange / White",
+    rating: "4.9",
+    description: "Bold orange accents on a clean white base — everyday icon energy for little adventurers.",
+    highlights: ["Durable outsole", "Soft step feel", "Kid-approved style"],
+  },
+  {
+    slug: "reef-runner",
+    name: "Reef Runner",
+    price: "₹2,099",
+    image: shoeImages.sharkCroc,
+    color: "Teal / Navy",
+    rating: "5.0",
+    description: "Character-led design with premium materials and grip that keeps up with wild imaginations.",
+    highlights: ["Character detailing", "Extra grip tread", "Premium finish"],
+  },
 ];
+
+export function getProductBySlug(slug: string) {
+  return products.find((item) => item.slug === slug);
+}
 
 export const comparisonRows = [
   { label: "Comfort", onyc: "Featherlight & flexible", others: "Often stiff & heavy" },

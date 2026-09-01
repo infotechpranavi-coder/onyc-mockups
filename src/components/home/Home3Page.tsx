@@ -78,6 +78,7 @@ export function Home3Page() {
               key={product.name}
               product={product}
               layout="editorial"
+              linkToDetail
               wishlisted={wishlisted.includes(product.name)}
               onWishlist={() => toggleWishlist(product.name)}
               onAdd={() => setCartCount((count) => count + 1)}
@@ -115,6 +116,7 @@ export function Home3Page() {
                 key={product.name}
                 product={product}
                 layout="editorial"
+                linkToDetail
                 wishlisted={wishlisted.includes(product.name)}
                 onWishlist={() => toggleWishlist(product.name)}
                 onAdd={() => setCartCount((count) => count + 1)}
