@@ -1,7 +1,13 @@
+import type { ReactNode } from "react";
 import { Instagram } from "lucide-react";
 import { galleryPosts } from "@/lib/home-data";
 
-export function InstagramGallery() {
+type InstagramGalleryProps = {
+  /** Optional accent above the Follow link (Home 5) */
+  headAccent?: ReactNode;
+};
+
+export function InstagramGallery({ headAccent }: InstagramGalleryProps) {
   const posts = galleryPosts;
 
   return (
@@ -13,14 +19,17 @@ export function InstagramGallery() {
             Little looks, <em>big energy.</em>
           </h2>
         </div>
-        <a
-          className="social-link"
-          href="https://instagram.com/onyc"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Instagram /> Follow us @onyc
-        </a>
+        <div className="section-heading__trail">
+          {headAccent}
+          <a
+            className="social-link"
+            href="https://instagram.com/onyc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Instagram /> Follow us @onyc
+          </a>
+        </div>
       </div>
 
       <div className="gallery-track">

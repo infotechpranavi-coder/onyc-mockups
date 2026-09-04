@@ -45,7 +45,7 @@ export const images = {
 
 export type NavLink = {
   label: string;
-  to: "/shop" | "/home1" | "/home2" | "/home3";
+  to: "/shop" | "/home1" | "/home2" | "/home3" | "/home4" | "/home5";
   hash?: string;
   /** Highlight when pathname starts with this prefix (e.g. shop pages). */
   activePrefix?: "/shop";
@@ -65,6 +65,8 @@ export const homeVariants = [
   { id: "home1", path: "/home1", label: "Home 1", tagline: "Bold & Colorful" },
   { id: "home2", path: "/home2", label: "Home 2", tagline: "Minimal & Clean" },
   { id: "home3", path: "/home3", label: "Home 3", tagline: "Dark & Editorial" },
+  { id: "home4", path: "/home4", label: "Home 4", tagline: "Playful Premium" },
+  { id: "home5", path: "/home5", label: "Home 5", tagline: "Joyful Creative" },
 ] as const;
 
 export type HomeVariantId = (typeof homeVariants)[number]["id"];
