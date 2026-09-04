@@ -1,16 +1,24 @@
+import type { ReactNode } from "react";
 import { Sparkles } from "lucide-react";
 
 import { brandLogo, comparisonRows } from "@/lib/home-data";
 
 type VsCompareSectionProps = {
   variant?: "light" | "dark";
+  /** Optional scribble beside / above the section title (Home 5) */
+  titleAccent?: ReactNode;
 };
 
-export function VsCompareSection({ variant = "light" }: VsCompareSectionProps) {
+export function VsCompareSection({ variant = "light", titleAccent }: VsCompareSectionProps) {
   return (
     <section className={`vs-compare vs-compare--${variant}`} aria-label="ONYC vs others">
       <div className="vs-compare__inner">
         <div className="vs-compare__intro">
+          {titleAccent ? (
+            <div className="vs-compare__title-accent" aria-hidden="true">
+              {titleAccent}
+            </div>
+          ) : null}
           <p className="vs-compare__eyebrow type-eyebrow">The ONYC difference</p>
           <h2 className="type-heading type-heading--compare">
             <span className="type-heading__line1">

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -6,9 +6,11 @@ import { offerBanners } from "@/lib/home-data";
 
 type PromoBannersProps = {
   variant?: "1" | "2" | "3";
+  /** Optional scribble under the head row (Home 5) */
+  headAccent?: ReactNode;
 };
 
-export function PromoBanners({ variant = "1" }: PromoBannersProps) {
+export function PromoBanners({ variant = "1", headAccent }: PromoBannersProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const banners = offerBanners;
@@ -70,6 +72,12 @@ export function PromoBanners({ variant = "1" }: PromoBannersProps) {
           </Button>
         </div>
       </div>
+
+      {headAccent ? (
+        <div className="offers-section__accent" aria-hidden="true">
+          {headAccent}
+        </div>
+      ) : null}
 
       <div className="offers-section__viewport">
         <div className="offers-section__track" ref={trackRef}>

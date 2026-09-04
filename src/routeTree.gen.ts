@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as Home1RouteImport } from './routes/home1'
 import { Route as Home2RouteImport } from './routes/home2'
 import { Route as Home3RouteImport } from './routes/home3'
+import { Route as Home4RouteImport } from './routes/home4'
+import { Route as Home5RouteImport } from './routes/home5'
 import { Route as ShopIndexRouteImport } from './routes/shop/index'
 import { Route as ShopSlugRouteImport } from './routes/shop/$slug'
 
@@ -36,6 +38,16 @@ const Home3Route = Home3RouteImport.update({
   path: '/home3',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Home4Route = Home4RouteImport.update({
+  id: '/home4',
+  path: '/home4',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Home5Route = Home5RouteImport.update({
+  id: '/home5',
+  path: '/home5',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShopIndexRoute = ShopIndexRouteImport.update({
   id: '/shop/',
   path: '/shop/',
@@ -52,6 +64,8 @@ export interface FileRoutesByFullPath {
   '/home1': typeof Home1Route
   '/home2': typeof Home2Route
   '/home3': typeof Home3Route
+  '/home4': typeof Home4Route
+  '/home5': typeof Home5Route
   '/shop/$slug': typeof ShopSlugRoute
   '/shop/': typeof ShopIndexRoute
 }
@@ -60,6 +74,8 @@ export interface FileRoutesByTo {
   '/home1': typeof Home1Route
   '/home2': typeof Home2Route
   '/home3': typeof Home3Route
+  '/home4': typeof Home4Route
+  '/home5': typeof Home5Route
   '/shop/$slug': typeof ShopSlugRoute
   '/shop': typeof ShopIndexRoute
 }
@@ -69,16 +85,42 @@ export interface FileRoutesById {
   '/home1': typeof Home1Route
   '/home2': typeof Home2Route
   '/home3': typeof Home3Route
+  '/home4': typeof Home4Route
+  '/home5': typeof Home5Route
   '/shop/$slug': typeof ShopSlugRoute
   '/shop/': typeof ShopIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home1' | '/home2' | '/home3' | '/shop/$slug' | '/shop/'
+  fullPaths:
+    | '/'
+    | '/home1'
+    | '/home2'
+    | '/home3'
+    | '/home4'
+    | '/home5'
+    | '/shop/$slug'
+    | '/shop/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home1' | '/home2' | '/home3' | '/shop/$slug' | '/shop'
+  to:
+    | '/'
+    | '/home1'
+    | '/home2'
+    | '/home3'
+    | '/home4'
+    | '/home5'
+    | '/shop/$slug'
+    | '/shop'
   id:
-    '__root__' | '/' | '/home1' | '/home2' | '/home3' | '/shop/$slug' | '/shop/'
+    | '__root__'
+    | '/'
+    | '/home1'
+    | '/home2'
+    | '/home3'
+    | '/home4'
+    | '/home5'
+    | '/shop/$slug'
+    | '/shop/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -86,6 +128,8 @@ export interface RootRouteChildren {
   Home1Route: typeof Home1Route
   Home2Route: typeof Home2Route
   Home3Route: typeof Home3Route
+  Home4Route: typeof Home4Route
+  Home5Route: typeof Home5Route
   ShopSlugRoute: typeof ShopSlugRoute
   ShopIndexRoute: typeof ShopIndexRoute
 }
@@ -120,6 +164,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Home3RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/home4': {
+      id: '/home4'
+      path: '/home4'
+      fullPath: '/home4'
+      preLoaderRoute: typeof Home4RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home5': {
+      id: '/home5'
+      path: '/home5'
+      fullPath: '/home5'
+      preLoaderRoute: typeof Home5RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/shop/': {
       id: '/shop/'
       path: '/shop'
@@ -142,6 +200,8 @@ const rootRouteChildren: RootRouteChildren = {
   Home1Route: Home1Route,
   Home2Route: Home2Route,
   Home3Route: Home3Route,
+  Home4Route: Home4Route,
+  Home5Route: Home5Route,
   ShopSlugRoute: ShopSlugRoute,
   ShopIndexRoute: ShopIndexRoute,
 }
